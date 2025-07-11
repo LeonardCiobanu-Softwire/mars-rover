@@ -1,25 +1,19 @@
-import React from "react";
+import * as React from 'react';
 import "../styles.css"
-// import Image from "next/image";
 import "keen-slider/keen-slider.min.css"
-import GetPhotos from "@/app/photos/getPhotos";
-import {IconButton, ImageList, ImageListItem, ImageListItemBar, ListSubheader} from "@mui/material";
+import {ButtonGroup} from "@mui/material";
+import Button from "@mui/material/Button";
+import CuriosityPage from "@/app/photos/curiosity/page";
+
 
 export default function Photos() {
 
     return (
-        <div>
-            <GetPhotos params={'src'}/>
-        </div>
+        <CuriosityPage/>
     );
 }
 
-const itemData =
-
-{/*<GetPhotos params={'src'}/>*/}
-
-
-
-
-
+// export function getRoverName() {
+//     return rover ? 'curiosity' : 'perseverance';
+// }
 

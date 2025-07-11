@@ -1,20 +1,18 @@
 'use server'
-// import { useState } from 'react';
+// import * as React from 'react';
 import {promises as fs} from "fs";
-import Image from "next/image";
 import React from "react";
 import {ImageList, ImageListItem, ImageListItemBar, ListSubheader} from "@mui/material";
-// import {useKeenSlider} from "keen-slider/react";
 
-export default async function GetPhoto({ params: { id: string } }) {
-    const file = await fs.readFile('response.json', 'utf8');
+export default async function GetPerseverancePhotos() {
+    const filename: string = "perseverancePictures.json";
+    const file = await fs.readFile(filename, 'utf8');
     const data = JSON.parse(file);
     const arrayData = Array.from(data.photos);
 
     return (
-        <ImageList sx={{ width: 500, height: 450 }}>
-            <ImageListItem key="Subheader" cols={2}>
-                <ListSubheader component="div">December</ListSubheader>
+        <ImageList sx={{ width: "auto", paddingTop: 0.1, paddingBottom: 5, paddingLeft: 3, paddingRight: 3}}>
+            <ImageListItem key="Subheader" cols={5}>
             </ImageListItem>
             {arrayData.map((item: any) => (
                 <ImageListItem key={item.img_src}>
@@ -33,17 +31,3 @@ export default async function GetPhoto({ params: { id: string } }) {
         </ImageList>
     );
 }
-
-// <ul>
-//     { arrayData.map((photo: any) => (
-//         <li key={photo.id}>
-//             <Image
-//                 src={photo.img_src}
-//                 alt={photo.camera.full_name}
-//                 width={300}
-//                 height={300}
-//             />
-//         </li>
-//     ))}
-// </ul>
-// );

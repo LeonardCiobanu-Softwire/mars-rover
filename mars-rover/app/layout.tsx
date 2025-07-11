@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Navbar from "../components/Navbar";
-import KeenSlider from 'keen-slider'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 const geistSans = Geist({
@@ -28,13 +27,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <AppRouterCacheProvider options={{ key: 'css' }}>
-        <Navbar />
-          <main className={"py-20 max-w-6xl mx-auto"}>
-              {children}
-          </main>
-        </AppRouterCacheProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable}`} >
+          <div className="gradient_background">
+          <AppRouterCacheProvider options={{ key: 'css' }}>
+            <Navbar />
+              <main className={"py-20 max-w-6xl mx-auto"}>
+                  {children}
+              </main>
+            </AppRouterCacheProvider>
+          </div>
       </body>
     </html>
   );
