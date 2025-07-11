@@ -2,7 +2,7 @@ import React from "react";
 
 export default async function Page() {
   return (
-      <ul>
-
-      </ul>);
+      <h1>
+        HOME
+      </h1>);
 }

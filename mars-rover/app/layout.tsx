@@ -4,6 +4,7 @@ import "./globals.css";
 import React from "react";
 import Navbar from "../components/Navbar";
 import KeenSlider from 'keen-slider'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,22 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <Navbar />
-      <main className={"py-20 max-w-6xl mx-auto"}>
-          {children}
-      </main>
-      {/*<nav>*/}
-          {/*<Link href="/"><h1>*/}
-          {/*  Home*/}
-          {/*</h1></Link>*/}
-          {/*<Link href="/photos"><h1>*/}
-          {/*  Photos*/}
-          {/*</h1></Link>*/}
-          {/*<Link href="/contact"><h1>*/}
-          {/*  Contact*/}
-          {/*</h1></Link>*/}
-        {/*</nav>*/}
-        {/*{children}*/}
+      <AppRouterCacheProvider options={{ key: 'css' }}>
+        <Navbar />
+          <main className={"py-20 max-w-6xl mx-auto"}>
+              {children}
+          </main>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
